@@ -9,26 +9,70 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#!/">MEAN TODO</a>
+                <a class="navbar-brand" href="#!/" data-ng-show="!authentication.user">{{ 'TITLE' | translate }}</a>
+                <a class="navbar-brand" href="#!/" data-ng-show="authentication.user">{{ 'ADMIN_MENU' | translate }}</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="page-scroll" data-ng-show="!authentication.user">
-                        <a href="/login">Login</a>
-                    </li>
-                    <li class="page-scroll" data-ng-show="!authentication.user">
-                        <a href="/register">Register</a>
-                    </li>
-                    
                     <li class="page-scroll">
-                        <a href="https://github.com/Hitman666/MEAN_MVC_4thTutorial">Fork on Github</a>
+                        <a href="/#!/">{{ 'HOME' | translate }}</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/#!/cv">{{ 'CV' | translate }}</a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'BOOKS' | translate }} <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li class="page-scroll">
+                            <a href="/#!/books">{{ 'BOOKS' | translate }}</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="page-scroll">
+                            <a href="/#!/bookreviews">{{ 'BOOKREVIEWS' | translate }}</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="page-scroll">
+                            <a href="/#!/books/create">{{ 'CREATE_BOOK' | translate }}</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'UNIVERSITY' | translate }} <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li class="page-scroll">
+                            <a href="/#!/papers">{{ 'PAPERS' | translate }}</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="page-scroll">
+                            <a href="/#!/lectures">{{ 'LECTURES' | translate }}</a>
+                        </li>
+                      </ul>
                     </li>
 
-                    <li class="page-scroll" data-ng-show="authentication.user">
-                        <a href="/logout">Hello <span data-ng-bind="authentication.user.name" data-ng-show="authentication.user"></span>, Logout?</a>
-                    </li>                    
+                    <li class="page-scroll">
+                        <a href="/login">{{ 'INTERVIEWS' | translate }}</a>
+                    </li>
+                    <li class="dropdown" data-ng-show="!authentication.user">
+                      <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lang <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a ng-click="changeLanguage('pt')" translate="BUTTON_TEXT_PT">PT | português </a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a ng-click="changeLanguage('en')" translate="BUTTON_TEXT_EN">EN | english</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="dropdown" data-ng-show="authentication.user">
+                      <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span data-ng-bind="authentication.user.email" data-ng-show="authentication.user"></span> <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a ng-click="changeLanguage('pt')" translate="BUTTON_TEXT_PT">PT | português </a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a ng-click="changeLanguage('en')" translate="BUTTON_TEXT_EN">EN | english</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/logout"> <span data-ng-bind="authentication.user.email" data-ng-show="authentication.user"></span>, Logout?</a></li>
+                      </ul>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -41,11 +85,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
-                        <span class="name">MEAN TODO</span>
-                        <hr class="star-light">
-                        <span class="skills">Mongo Express Node Angular powered TODO list</span>
+                        <span class="name">{{ 'BIO' | translate }}</span>
+                        <hr >
+                        <span class="skills">{{ 'PROF_AT' | translate }} <a href="http://www.fcsh.unl.pt/" class="dlink-white"> <i>Univervisity Nova de Lisboa, faculdade de ciências sociais e humanas, Portugal</i></a></span>
                     </div>
                 </div>
             </div>
@@ -58,11 +101,11 @@
 				<h1>
 					<li><a href="/#!/todos">List Todos</a></li>
 				</h1>
-				
+
 				<h1>
 					<li><a href="/#!/todos/create">Create Todo</a></li>
 				</h1>
-			</ul>        
+			</ul>
         </div>
     </section>
 
@@ -71,20 +114,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>How it looks</h2>
-                    <hr class="star-primary">
+                    <h2>{{ 'ABOUT' | translate }}</h2>
+                    <hr>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <img src="img/portfolio/create.jpg" class="img-responsive" alt="">
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <img src="img/portfolio/list.jpg" class="img-responsive" alt="">
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <img src="img/portfolio/edit.jpg" class="img-responsive" alt="">
-                </div>
+              <div class="col-lg-4">
+                <h2>Safari bug warning!</h2>
+                <p class="text-danger">As of v8.0, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-primary" href="#" role="button">View details »</a></p>
+              </div>
+              <div class="col-lg-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-primary" href="#" role="button">View details »</a></p>
+             </div>
+              <div class="col-lg-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+                <p><a class="btn btn-primary" href="#" role="button">View details »</a></p>
+              </div>
             </div>
         </div>
     </section>
@@ -94,18 +144,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>What it is?</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <p class="text-center">MEAN TODO is an application for managing your TODOs built on top of the awesome MEAN stack. The acompanying 4 part series blog posts on how to make this application can be found <a href="#">here</a>.</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="https://github.com/Hitman666/MEAN_MVC_4thTutorial" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Fork it on Github
-                    </a>
+                    <p>Diogo Pires Aurélio</p>
                 </div>
             </div>
         </div>

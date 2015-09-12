@@ -1,32 +1,32 @@
 {
-  "name": "MEAN_MVC_4thTutorial",
+  "name": "pai_mean_app",
   "version": "1.0.0",
-  "description": "Code acompanying the [third blog post](not yet published)",
+  "description": "Basic app based on https://github.com/Hitman666/MEAN_MVC_4thTutorial.git",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Hitman666/MEAN_MVC_4thTutorial.git"
+    "url": "https://github.com/diogoaurelio/pai_mean_app.git"
   },
   "keywords": [
     "MEAN",
     "MVC"
   ],
-  "author": "Nikola Brežnjak <nikola.breznjak@gmail.com> (http://www.nikola-breznjak.com/)",
+  "author": "Diogo Aurélio",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Hitman666/MEAN_MVC_4thTutorial/issues"
+    "url": "https://github.com/diogoaurelio/pai_mean_app/issues"
   },
-  "homepage": "https://github.com/Hitman666/MEAN_MVC_4thTutorial",
+  "homepage": "https://github.com/diogoaurelio/pai_mean_app",
   "dependencies": {
     "body-parser": "^1.10.1",
     "connect-flash": "^0.1.1",
     "ejs": "^2.0.6",
     "express": "^4.10.7",
     "express-session": "^1.10.1",
-    "mongoose": "^3.8.28",
+    "mongoose": "3.8",
     "passport": "^0.2.1",
     "passport-facebook": "^1.0.3",
     "passport-local": "^1.0.0",

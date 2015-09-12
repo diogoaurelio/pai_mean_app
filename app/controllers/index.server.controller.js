@@ -1,6 +1,6 @@
 exports.render = function(req, res) {
     res.render('index', {
-    	title: 'MEAN MVC',
+    	title: 'Diogo Pires Aurélio webpage',
     	user: JSON.stringify(req.user)
     });
 };

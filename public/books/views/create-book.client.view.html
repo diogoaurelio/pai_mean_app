@@ -1,0 +1,95 @@
+<div data-ng-controller="BooksController">
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header page-scroll">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#!/" data-ng-show="!authentication.user">{{ 'TITLE' | translate }}</a>
+              <a class="navbar-brand" href="#!/" data-ng-show="authentication.user">{{ 'ADMIN_MENU' | translate }}</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                  <li class="page-scroll">
+                      <a href="/#!/">{{ 'HOME' | translate }}</a>
+                  </li>
+                  <li class="page-scroll">
+                      <a href="/#!/cv">{{ 'CV' | translate }}</a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'BOOKS' | translate }} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li class="page-scroll">
+                          <a href="/#!/books">{{ 'BOOKS' | translate }}</a>
+                      </li>
+                      <li role="separator" class="divider"></li>
+                      <li class="page-scroll">
+                          <a href="/#!/bookreviews">{{ 'BOOKREVIEWS' | translate }}</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'UNIVERSITY' | translate }} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li class="page-scroll">
+                          <a href="/#!/papers">{{ 'PAPERS' | translate }}</a>
+                      </li>
+                      <li role="separator" class="divider"></li>
+                      <li class="page-scroll">
+                          <a href="/#!/lectures">{{ 'LECTURES' | translate }}</a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="page-scroll">
+                      <a href="/login">{{ 'INTERVIEWS' | translate }}</a>
+                  </li>
+                  <li class="dropdown" data-ng-show="!authentication.user">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lang <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a ng-click="changeLanguage('pt')" translate="BUTTON_TEXT_PT">PT | português </a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a ng-click="changeLanguage('en')" translate="BUTTON_TEXT_EN">EN | english</a></li>
+                    </ul>
+                  </li>
+                  <li class="page-scroll" data-ng-show="authentication.user">
+                      <a href="/logout"> <span data-ng-bind="authentication.user.email" data-ng-show="authentication.user"></span>, Logout?</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+  </nav>
+
+    <section class="container">
+		<h1>New Todo</h1>
+		<form class="form-signin" data-ng-submit="create()" novalidate>
+			<div>
+				<label for="title" class="sr-only">Title</label>
+				<div>
+					<input type="text" data-ng-model="title" id="title" placeholder="Title" required autofocus class="form-control">
+				</div>
+			</div>
+
+			<div>
+				<label for="comment" class="sr-only">Comment</label>
+				<div>
+					<textarea data-ng-model="comment" id="comment" cols="30" rows="10" placeholder="Comment" class="form-control"></textarea>
+				</div>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-lg btn-primary btn-block">Create TODO</button>
+			</div>
+			<div data-ng-show="error">
+				<strong data-ng-bind="error"></strong>
+			</div>
+		</form>
+	</section>
+</div>

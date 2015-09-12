@@ -1,16 +1,16 @@
-var port = 1337;
+var SECRETS = require('./../secrets');
 
 module.exports = {
-	port: port,
-	db: 'mongodb://localhost/todos',
+	port: SECRETS.DEV.APP_PORT,
+	db: 'mongodb://' +SECRETS.DEV.DB_HOST +'/' + SECRETS.DEV.APP_PORT.DB_NAME,
 	facebook: {
-		clientID: '513828288756645',
-		clientSecret: '2d7cc991efddb864e9af61f307980b9a',
-		callbackURL: 'http://localhost:'+ port +'/oauth/facebook/callback'
+		clientID: SECRETS.DEV.facebook.clientID,
+		clientSecret: SECRETS.DEV.facebook.clientSecret,
+		callbackURL: 'http://' + SECRETS.DEV.APP_HOST +':'+ SECRETS.DEV.APP_PORT +'/oauth/facebook/callback'
 	},
 	twitter: {
-		clientID: 'yFntGKkvMZkDKL47XGtzLNdRA',
-		clientSecret: 'EAiPTjPYLX5nrkpRtxYQflbWpRTqqLwwBHRLh7WpdQ1P69Tre6',
-		callbackURL: 'http://localhost:'+ port +'/oauth/twitter/callback'
+		clientID: SECRETS.DEV.twitter.clientID,
+		clientSecret: SECRETS.DEV.twitter.clientSecret,
+		callbackURL: 'http://' + SECRETS.DEV.APP_HOST +':'+ SECRETS.DEV.APP_PORT +'/oauth/twitter/callback'
 	}
 };
